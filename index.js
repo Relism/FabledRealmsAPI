@@ -11,6 +11,7 @@ const app = express();
 const port = 3000;
 
 const MineSkinBearer = process.env.MINESKINKEY;
+//test commit
 
 const skinComponents = {
   skin: require("./skingen/components/skin/skin.js"),
