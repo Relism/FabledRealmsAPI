@@ -10,6 +10,8 @@ const db = require("./database/db");
 const app = express();
 const port = 3000;
 
+const MineSkinBearer = process.env.MINESKINKEY;
+
 const skinComponents = {
   skin: require("./skingen/components/skin/skin.js"),
   shirt: require("./skingen/components/shirt/shirt.js"),
@@ -73,8 +75,7 @@ app.get("/skingen/generate/:uuid/:config", async (req, res) => {
       {
         headers: {
           ...formData.getHeaders(),
-          Authorization:
-            "Bearer 61897abbc2e6b3a272f110427ec10be37adf317c0e389add3db2af60053949b6",
+          Authorization: "Bearer " + MineSkinBearer,
         },
       },
     );
