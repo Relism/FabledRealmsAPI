@@ -1,17 +1,14 @@
 const express = require("express");
 const bodyParser = require("body-parser");
-const path = require("path");
 const skingen = require("./skingen/skingen");
 const axios = require("axios");
 const FormData = require("form-data");
-const fs = require("fs");
 const db = require("./database/db");
 
 const app = express();
 const port = 3000;
 
 const MineSkinBearer = process.env.MINESKINKEY;
-//test commit
 
 const skinComponents = {
   skin: require("./skingen/components/skin/skin.js"),
@@ -83,9 +80,25 @@ app.get("/skingen/generate/:uuid/:config", async (req, res) => {
 
     // Send the generated skin URL to the client
     res.send(response.data.data.texture);
+    skingen.setSkinConfig(uuid, JSON.parse(config), response.data.data);
   } catch (error) {
     console.error("Error generating skin:", error.message);
     res.status(500).json({ error: "Internal Server Error" });
+  }
+});
+
+app.get("/skingen/avatar/:uuid/:size", async (req, res) => {
+  try {
+    const uuid = req.params.uuid;
+    const size = parseInt(req.params.size) || 512; // Default to 512 if size is not provided or not a valid number
+
+    const imageBuffer = await skingen.getPlayerAvatar(uuid, size);
+
+    res.set("Content-Type", "image/png");
+    res.send(imageBuffer);
+  } catch (error) {
+    console.error(error);
+    res.status(500).send(error.toString());
   }
 });
 

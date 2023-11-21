@@ -23,6 +23,7 @@
   "dependencies": {
     "axios": "^1.6.2",
     "bson": "^6.2.0",
+    "canvas": "^2.11.2",
     "chalk": "^5.3.0",
     "cli-ux": "^6.0.9",
     "dotenv": "^16.3.1",
