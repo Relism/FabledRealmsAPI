@@ -205,15 +205,6 @@ async function drawFailed(ctx) {
   }
 }
 
-async function resizeImageToCanvas(imagePath, width, height) {
-  const originalImage = await loadImage(imagePath);
-  const canvas = createCanvas(width, height);
-  const ctx = canvas.getContext("2d");
-
-  ctx.drawImage(originalImage, 0, 0, width, height);
-  return canvas;
-}
-
 async function setSkinConfig(uuid, config, mskindata) {
   const dbClient = db.getClient();
   const database = dbClient.db("player");
