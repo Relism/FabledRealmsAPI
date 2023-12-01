@@ -70,12 +70,12 @@ router.post("/builds/:branch/upload", multer().single("file"), (req, res) => {
         if (error) {
           console.error(`Failed to forward file to ${endpoint}: ${error}`);
           res.status(500).json({
-            error: `Failed to forward file to ${branchName} endpoint`,
+            error: `Failed to forward file to ${branchName} endpoint : ${error}`,
           });
         } else {
           console.log(`File forwarded to ${branchName} endpoint: ${endpoint}`);
           res.json({
-            message: `File uploaded and forwarded to ${branchName} endpoint successfully`,
+            message: `File uploaded and forwarded to ${branchName} endpoint successfully : ${response}`,
           });
         }
       },
