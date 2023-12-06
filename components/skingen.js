@@ -1,6 +1,6 @@
 const express = require("express");
 const router = express.Router();
-const skingen = require("../skingen/skingen.js");
+const skingen = require("./skingen/skingen.js");
 const axios = require("axios");
 const FormData = require("form-data");
 require("dotenv").config();

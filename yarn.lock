@@ -2,10 +2,29 @@
 # yarn lockfile v1
 
 
-"@img/sharp-win32-x64@0.33.0":
+"@img/sharp-libvips-linux-x64@1.0.0":
+  version "1.0.0"
+  resolved "https://registry.npmjs.org/@img/sharp-libvips-linux-x64/-/sharp-libvips-linux-x64-1.0.0.tgz"
+  integrity sha512-naldaJy4hSVhWBgEjfdBY85CAa4UO+W1nx6a1sWStHZ7EUfNiuBTTN2KUYT5dH1+p/xij1t2QSXfCiFJoC5S/Q==
+
+"@img/sharp-libvips-linuxmusl-x64@1.0.0":
+  version "1.0.0"
+  resolved "https://registry.npmjs.org/@img/sharp-libvips-linuxmusl-x64/-/sharp-libvips-linuxmusl-x64-1.0.0.tgz"
+  integrity sha512-FW8iK6rJrg+X2jKD0Ajhjv6y74lToIBEvkZhl42nZt563FfxkCYacrXZtd+q/sRQDypQLzY5WdLkVTbJoPyqNg==
+
+"@img/sharp-linux-x64@^0.33.0", "@img/sharp-linux-x64@0.33.0":
   version "0.33.0"
-  resolved "https://registry.npmjs.org/@img/sharp-win32-x64/-/sharp-win32-x64-0.33.0.tgz"
-  integrity sha512-i3DtP/2ce1yKFj4OzOnOYltOEL/+dp4dc4dJXJBv6god1AFTcmkaA99H/7SwOmkCOBQkbVvA3lCGm3/5nDtf9Q==
+  resolved "https://registry.npmjs.org/@img/sharp-linux-x64/-/sharp-linux-x64-0.33.0.tgz"
+  integrity sha512-PaZM4Zi7/Ek71WgTdvR+KzTZpBqrQOFcPe7/8ZoPRlTYYRe43k6TWsf4GVH6XKRLMYeSp8J89RfAhBrSP4itNA==
+  optionalDependencies:
+    "@img/sharp-libvips-linux-x64" "1.0.0"
+
+"@img/sharp-linuxmusl-x64@0.33.0":
+  version "0.33.0"
+  resolved "https://registry.npmjs.org/@img/sharp-linuxmusl-x64/-/sharp-linuxmusl-x64-0.33.0.tgz"
+  integrity sha512-CecqgB/CnkvCWFhmfN9ZhPGMLXaEBXl4o7WtA6U3Ztrlh/s7FUKX4vNxpMSYLIrWuuzjiaYdfU3+Tdqh1xaHfw==
+  optionalDependencies:
+    "@img/sharp-libvips-linuxmusl-x64" "1.0.0"
 
 "@jimp/bmp@^0.22.10":
   version "0.22.10"

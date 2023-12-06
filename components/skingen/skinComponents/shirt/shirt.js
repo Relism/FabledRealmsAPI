@@ -22,7 +22,6 @@ const ShirtComponent = {
           ShirtComponent.assets[assetKey] = await fs.readFile(filePath);
         }
       }
-      console.log("ShirtComponent assets loaded successfully.");
     } catch (error) {
       console.error("Error loading ShirtComponent assets:", error.message);
     }

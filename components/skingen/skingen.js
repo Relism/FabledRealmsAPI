@@ -3,13 +3,13 @@ const axios = require("axios");
 const { createCanvas, loadImage } = require("canvas");
 
 const { skinPartSides } = require("./constants");
-const db = require("../database/db");
+const db = require("../../database/db");
 
 const skinComponents = {
-  skin: require("./components/skin/skin.js"),
-  shirt: require("./components/shirt/shirt.js"),
-  ears: require("./components/ears/ears.js"),
-  eyes: require("./components/eyes/eyes.js"),
+  skin: require("./skinComponents/skin/skin.js"),
+  shirt: require("./skinComponents/shirt/shirt.js"),
+  ears: require("./skinComponents/ears/ears.js"),
+  eyes: require("./skinComponents/eyes/eyes.js"),
 };
 
 const generateSkin = async (config, uuid) => {

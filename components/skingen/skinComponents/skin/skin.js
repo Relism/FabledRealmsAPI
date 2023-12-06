@@ -1,14 +1,14 @@
 const fs = require("fs").promises;
 const path = require("path");
 
-const EyesComponent = {
+const SkinComponent = {
   assets: {}, // Object to store loaded assets
 
   placement: () => [{ part: "head", side: "front" }],
 
-  getAsset: (id, color) => {
-    const assetKey = `eyes_${id}_${color}`;
-    return EyesComponent.assets[assetKey];
+  getAsset: (id) => {
+    const assetKey = `skintone_${id}`;
+    return SkinComponent.assets[assetKey];
   },
 
   loadAssets: async () => {
@@ -16,38 +16,37 @@ const EyesComponent = {
     try {
       const files = await fs.readdir(assetsDir);
       for (const file of files) {
-        if (file.endsWith(".png")) {
+        if (file.startsWith("skintone_") && file.endsWith(".png")) {
           const filePath = path.join(assetsDir, file);
           const assetKey = path.basename(file, ".png");
-          EyesComponent.assets[assetKey] = await fs.readFile(filePath);
+          SkinComponent.assets[assetKey] = await fs.readFile(filePath);
         }
       }
-      console.log("Assets loaded successfully.");
     } catch (error) {
-      console.error("Error loading assets:", error.message);
+      console.error("Error loading SkinComponent assets:", error.message);
     }
   },
 
   applyToSkin: async (skinImage, id, color, placement, coordinates) => {
     try {
-      const asset = EyesComponent.getAsset(id, color);
+      const asset = SkinComponent.getAsset(id);
       if (!asset) {
-        console.error(`Asset not found for ID: ${id}, Color: ${color}`);
+        console.error(`Asset not found for Skin ID: ${id}`);
         return skinImage.png();
       }
 
       return skinImage.composite([
         {
           input: asset,
-          left: coordinates.x1,
-          top: coordinates.y1,
+          left: 0,
+          top: 0,
         },
       ]);
     } catch (error) {
       console.error(
-        `Error applying Eyes component (ID: ${id}) to skin: ${error.message}`
+        `Error applying Skin component (ID: ${id}) to skin: ${error.message}`
       );
-      console.error("Asset path:", EyesComponent.getAsset(id));
+      console.error("Asset path:", SkinComponent.getAsset(id));
       console.error("Coordinates:", coordinates);
       return skinImage.png();
     }
@@ -55,6 +54,6 @@ const EyesComponent = {
 };
 
 // Load assets on initialization
-EyesComponent.loadAssets();
+SkinComponent.loadAssets();
 
-module.exports = EyesComponent;
+module.exports = SkinComponent;

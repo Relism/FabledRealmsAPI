@@ -26,7 +26,6 @@ const EarsComponent = {
           EarsComponent.assets[assetKey] = await fs.readFile(filePath);
         }
       }
-      console.log("EarsComponent assets loaded successfully.");
     } catch (error) {
       console.error("Error loading EarsComponent assets:", error.message);
     }
