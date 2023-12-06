@@ -1,7 +1,7 @@
 const particlesConfiguration = {
     "particles": {
       "number": {
-        "value": 5,
+        "value": 10,
         "density": {
           "enable": true,
           "value_area": 800
@@ -30,7 +30,7 @@ const particlesConfiguration = {
         "random": false,
         "anim": {
           "enable": false,
-          "speed": 1,
+          "speed": 0.4,
           "opacity_min": 0.1,
           "sync": false
         }
@@ -54,7 +54,7 @@ const particlesConfiguration = {
       },
       "move": {
         "enable": true,
-        "speed": 6,
+        "speed": 3,
         "direction": "none",
         "random": false,
         "straight": false,
@@ -75,7 +75,7 @@ const particlesConfiguration = {
           "mode": "grab"
         },
         "onclick": {
-          "enable": true,
+          "enable": false,
           "mode": "push"
         },
         "resize": true

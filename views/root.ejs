@@ -8,30 +8,67 @@
       body {
         margin: 0;
         font: normal 75% Arial, Helvetica, sans-serif;
+        position: relative;
       }
 
-      canvas {
-        display: block;
-        vertical-align: bottom;
-      }
+      /* Other styles as needed */
 
       /* ---- particles.js container ---- */
       #particles-js {
-        position: absolute;
+        position: fixed;
+        top: 0;
+        left: 0;
         width: 100%;
         height: 100%;
+        z-index: -1; /* Set z-index to place it behind other content */
         background-color: #252222;
         background-image: url("");
         background-repeat: no-repeat;
         background-size: cover;
         background-position: 50% 50%;
       }
+
+      /* Style the main content */
+      .main-content {
+        position: relative;
+        z-index: 1; /* Set z-index higher to place it in front */
+        text-align: center; /* Center-align content */
+        margin-top: 20%; /* Adjust top margin for centering */
+        color: white; /* Text color */
+      }
+
+      .main-content a {
+        font-size: 2em;
+        color: rgb(255, 182, 182); /* Anchor text color */
+        text-decoration: underline; /* Underline anchor text */
+        cursor: pointer; /* Show pointer on hover */
+        display: block; /* Make it a block element for proper spacing */
+        margin-top: 20px; /* Adjust top margin */
+      }
+
+      /* Customize h1 and h2 */
+      h1 {
+        font-size: 5em; /* Increase h1 font size */
+        margin-bottom: 0.5px;
+      }
+
+      h2 {
+        margin-top: 0.5px; /* Adjust top margin for h2 */
+      }
     </style>
   </head>
   <body>
     <!-- particles.js container -->
     <div id="particles-js"></div>
-  
+    
+    <!-- Main content -->
+    <div class="main-content">
+      <h1>FabledRealms API</h1>
+      <h2>v-<%= runtimeVersion %></h2>
+      <a href="https://fabledrealms.net">Check out the project</a>
+      <!-- Other content -->
+    </div>
+
     <!-- particles.js library -->
     <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
     <script>

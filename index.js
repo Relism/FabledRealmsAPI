@@ -53,7 +53,7 @@ const initSkinComponents = async () => {
 function getApiRuntimeVersion() {
   const currentDate = new Date();
 
-  const year = currentDate.getFullYear();
+  const year = currentDate.getFullYear().toString().slice(-2);;
   const month = String(currentDate.getMonth() + 1).padStart(2, '0'); // Two digits, zero-padded
   const day = String(currentDate.getDate()).padStart(2, '0');
   const hour = String(currentDate.getHours()).padStart(2, '0');
@@ -71,7 +71,7 @@ app.set('views', path.join(__dirname, 'views'));
 
 app.get('/', async (req, res) => {
   const particlesConfiguration = viewsConfigurations.particlesConfiguration;
-  res.render('root', { particlesConfiguration }); // Assuming runtimeVersion is available in your scope
+  res.render('root', { particlesConfiguration, runtimeVersion }); // Assuming runtimeVersion is available in your scope
 });
 
 app.listen(port, () => {
