@@ -3,6 +3,9 @@ const router = express.Router();
 const skingen = require("../skingen/skingen.js");
 const axios = require("axios");
 const FormData = require("form-data");
+require("dotenv").config();
+
+const MineSkinBearer = process.env.MINESKINKEY
 
 router.get("/generate/:uuid/:config", async (req, res) => {
   try {

@@ -80,7 +80,7 @@ async function getPlayerAvatar(uuid, size) {
   const ctx = canvas.getContext("2d");
 
   const dbClient = db.getClient();
-  const database = dbClient.db("player");
+  const database = dbClient.db("players");
 
   // Use uuid directly as the collection name
   const playerCol = database.collection(uuid);
@@ -207,7 +207,7 @@ async function drawFailed(ctx) {
 
 async function setSkinConfig(uuid, config, mskindata) {
   const dbClient = db.getClient();
-  const database = dbClient.db("player");
+  const database = dbClient.db("players");
   const playerCol = database.collection(uuid);
 
   try {
